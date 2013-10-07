@@ -1,4 +1,3 @@
-class Photo < ActiveLdap::Base
-  ldap_mapping dn_attribute: "cn",
-               prefix: "ou=photos"
+class Photo < ActiveRecord::Base
+  attr_accessible :body, :title, :description, :user_uid, :contest_id
 end
