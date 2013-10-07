@@ -7,6 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+# handle more requests than WEBrick
+gem 'unicorn'          
+
 # use setting YML file for config
 gem 'settingslogic'
 
