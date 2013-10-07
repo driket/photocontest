@@ -2,6 +2,14 @@ class ContestsController < ApplicationController
   
   before_filter CASClient::Frameworks::Rails::Filter, :except => :index
   
+  def login
+    redirect_to contests_url, notice: 'Vous êtes maintenant authentifié'
+  end
+  
+  def logout
+    CASClient::Frameworks::Rails::Filter.logout(self)  
+  end
+  
   # GET /contests
   # GET /contests.json
   def index
@@ -16,7 +24,6 @@ class ContestsController < ApplicationController
   # GET /contests/1.json
   def show
     @contest = Contest.find(params[:id])
-    flash[:notice] = session[:cas_user]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contest }
@@ -36,6 +43,7 @@ class ContestsController < ApplicationController
 
   # GET /contests/1/edit
   def edit
+    CASClient::Frameworks::Rails::Filter.logout(self)
     @contest = Contest.find(params[:id])
   end
 

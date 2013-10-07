@@ -1,7 +1,13 @@
 PhotoContest::Application.routes.draw do
-  resources :contests
+  
+  resources :contests do
+     collection do
+       get 'login'
+       get 'logout'
+     end
+   end
 
-
+  # 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
