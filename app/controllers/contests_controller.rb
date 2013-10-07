@@ -1,9 +1,11 @@
 class ContestsController < ApplicationController
+  
+  before_filter CASClient::Frameworks::Rails::Filter, :except => :index
+  
   # GET /contests
   # GET /contests.json
   def index
     @contests = Contest.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @contests }
@@ -14,7 +16,7 @@ class ContestsController < ApplicationController
   # GET /contests/1.json
   def show
     @contest = Contest.find(params[:id])
-
+    flash[:notice] = session[:cas_user]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contest }
