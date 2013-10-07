@@ -4,22 +4,16 @@
 
 <p><%= @contest.body %></p>
 
-
-<p>
-  <b>Nombre de photos par participant : </b>
-  <%= @contest.max_photos_per_user %>
-</p>
-
 <div class="row">
 <% for photo in @my_photos %>
-	<div class="col-sm-4">
-		<%= photo.title %><br />
+	<div class="col-sm-4 photo-display text-center">
+		<h4><%= photo.title %></h4>
+		<div class="photo-frame">
+		<img src="/assets/stan.png" class="img-responsive" />
+		</div>
 		<%= photo.description %><br />
-		<%= photo.user_uid %><br />
-		<%= photo.contest_id %><br />
-		<%= link_to 'Show', photo %>
-		<%= link_to 'Edit', edit_photo_path(photo) %>
-		<%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<%= link_to 'Modifier', edit_photo_path(photo), :class => "btn btn-primary btn-sm" %>
+		<%= link_to 'Supprimer', photo, method: :delete, data: { confirm: 'Voulez-vous supprimer cette photo ?' }, :class => "btn btn-danger btn-sm" %>
 	</div>
 <% end %>
 </div>
@@ -32,8 +26,11 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<hr />
+
 <!-- Button trigger modal -->
- <a data-toggle="modal" href="#add-picture-modal" class="btn btn-primary btn-lg">Ajouter une photo</a>
+ <a data-toggle="modal" href="#add-picture-modal" class="btn btn-primary">Ajouter une photo</a>
+   (Nombre de photos par participant : <%= @contest.max_photos_per_user %>)
  
 <% if is_admin? %>
 	<%= link_to 'Modifier le concours', edit_contest_path(@contest), :class => "btn btn-large btn-primary" %>
