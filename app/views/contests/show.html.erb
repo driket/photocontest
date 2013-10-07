@@ -9,7 +9,32 @@
   <b>Nombre de photos par participant : </b>
   <%= @contest.max_photos_per_user %>
 </p>
-	<%= link_to 'Ajouter une photo', edit_contest_path(@contest), :class => "btn btn-large btn-primary" %>
+
+<div class="row">
+<% for photo in @my_photos %>
+	<div class="col-sm-4">
+		<%= photo.title %><br />
+		<%= photo.description %><br />
+		<%= photo.user_uid %><br />
+		<%= photo.contest_id %><br />
+		<%= link_to 'Show', photo %>
+		<%= link_to 'Edit', edit_photo_path(photo) %>
+		<%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</div>
+<% end %>
+</div>
+
+<div class="modal fade" id="add-picture-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+			<%= render 'photos/add' %>
+		</div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Button trigger modal -->
+ <a data-toggle="modal" href="#add-picture-modal" class="btn btn-primary btn-lg">Ajouter une photo</a>
+ 
 <% if is_admin? %>
 	<%= link_to 'Modifier le concours', edit_contest_path(@contest), :class => "btn btn-large btn-primary" %>
 <% end %>
