@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div class="alert alert-info"><%= notice %></div>
+<% end %>
+<% if alert %>
+<div class="alert alert-danger"><%= alert %></div>
+<% end %>
+
 
 <h1><%= @contest.title %></h1>
 
-<h3>Participations ouvertes du <%= @contest.date_start %> au <%= @contest.date_end %></h3>
+<h3 class="discreet">Participations ouvertes du <%= @contest.date_start %> au <%= @contest.date_end %></h3>
 
 <p><%= @contest.body %></p>
 
@@ -11,6 +17,7 @@
   <b>Nombre de photos par participant : </b>
   <%= @contest.max_photos_per_user %>
 </p>
-
-<%= link_to 'Edit', edit_contest_path(@contest) %> |
-<%= link_to 'Back', contests_path %>
+	<%= link_to 'Ajouter une photo', edit_contest_path(@contest), :class => "btn btn-large btn-primary" %>
+<% if is_admin? %>
+	<%= link_to 'Modifier le concours', edit_contest_path(@contest), :class => "btn btn-large btn-primary" %>
+<% end %>
