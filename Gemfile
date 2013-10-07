@@ -7,6 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+# use setting YML file for config
+gem 'settingslogic'
+
 # cas authentication
 gem 'rubycas-client-rails'
 
