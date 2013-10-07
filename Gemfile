@@ -13,6 +13,10 @@ gem 'settingslogic'
 # cas authentication
 gem 'rubycas-client-rails'
 
+# ldap infos (mail, name, etc.)
+gem 'activeldap', :require => 'active_ldap/railtie'
+gem 'ruby-ldap'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
