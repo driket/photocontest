@@ -43,7 +43,6 @@ class ContestsController < ApplicationController
 
   # GET /contests/1/edit
   def edit
-    CASClient::Frameworks::Rails::Filter.logout(self)
     @contest = Contest.find(params[:id])
   end
 
