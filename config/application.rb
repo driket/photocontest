@@ -61,6 +61,7 @@ module PhotoContest
     
     # for some reason, these lines needs to belong here
     # CAS setup is in initializers/cas_client
+    config.app_generators.orm :active_record
     config.rubycas.cas_base_url = ''
     config.rubycas.logger = Rails.logger
   end

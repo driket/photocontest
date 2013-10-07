@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007114500) do
+ActiveRecord::Schema.define(:version => 20131007202115) do
 
   create_table "contests", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20131007114500) do
     t.datetime "vote_end"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "user_uid"
+    t.integer  "contest_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

@@ -1,5 +1,8 @@
 PhotoContest::Application.routes.draw do
   
+  resources :photos
+
+
   resources :contests do
      collection do
        get 'login'
