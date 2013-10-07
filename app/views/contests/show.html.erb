@@ -1,6 +1,6 @@
 <h1><%= @contest.title %></h1>
 
-<h3 class="discreet">Participations ouvertes du <%= @contest.date_start %> au <%= @contest.date_end %></h3>
+<h3 class="discreet">Termine dans <%= distance_of_time_in_words_to_now @contest.date_end %></h3>
 
 <p><%= @contest.body %></p>
 
