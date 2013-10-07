@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  body: MyText
+  date_start: 2013-10-07 13:45:00
+  date_end: 2013-10-07 13:45:00
+  max_photos_per_user: 1
+  max_vote_per_user: 1
+  vote_start: 2013-10-07 13:45:00
+  vote_end: 2013-10-07 13:45:00
+
+two:
+  title: MyString
+  body: MyText
+  date_start: 2013-10-07 13:45:00
+  date_end: 2013-10-07 13:45:00
+  max_photos_per_user: 1
+  max_vote_per_user: 1
+  vote_start: 2013-10-07 13:45:00
+  vote_end: 2013-10-07 13:45:00
