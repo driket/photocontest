@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007202115) do
+ActiveRecord::Schema.define(:version => 20131007204517) do
 
   create_table "contests", :force => true do |t|
     t.string   "title"
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(:version => 20131007202115) do
     t.integer  "max_vote_per_user"
     t.datetime "vote_start"
     t.datetime "vote_end"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.string   "action_title",        :default => "participer"
+    t.string   "description"
   end
 
   create_table "photos", :force => true do |t|
