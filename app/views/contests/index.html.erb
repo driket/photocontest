@@ -1,37 +1,21 @@
-<h1>Listing contests</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Date start</th>
-    <th>Date end</th>
-    <th>Max photos per user</th>
-    <th>Max vote per user</th>
-    <th>Vote start</th>
-    <th>Vote end</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="jumbotron">
+   <h1>Concours Photo du LORIA</h1>
+	<img src="assets/cameralens400.png" class="img-responsive" />
+   <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+ </div>
 
 <% @contests.each do |contest| %>
-  <tr>
-    <td><%= contest.title %></td>
-    <td><%= contest.body %></td>
-    <td><%= contest.date_start %></td>
-    <td><%= contest.date_end %></td>
-    <td><%= contest.max_photos_per_user %></td>
-    <td><%= contest.max_vote_per_user %></td>
-    <td><%= contest.vote_start %></td>
-    <td><%= contest.vote_end %></td>
-    <td><%= link_to 'Show', contest %></td>
-    <td><%= link_to 'Edit', edit_contest_path(contest) %></td>
-    <td><%= link_to 'Destroy', contest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<div class="row">
+   <div class="col-sm-8">
+	 	<h3 class="text-center"><%= contest.title %></h3>
+	 	<p class="text-center"><%= contest.body %></p>
+    <p class="text-center"><%= link_to 'Participer et gagnez peut-être un iPad', contest, :class => 'btn btn-lg btn-primary' %>
+	 </div>
+   <div class="col-sm-4">
+		 <h4 class="text-center">CONDITIONS</h4>
+ 	 	 <h5 class="text-center">Date de participation</h5>
+		 <p class="text-center">Commence le <%= t contest.date_start %></p><p class="text-center">Termine le <%= t contest.date_end %></p>
+ 	 	 <h5 class="text-center">Nombre de photos par participants : <%= contest.max_photos_per_user %></h5>
+	 </div>
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Contest', new_contest_path %>
