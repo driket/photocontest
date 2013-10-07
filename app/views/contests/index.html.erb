@@ -7,17 +7,11 @@
 <h2 class="text-center plain-title">CONCOURS OUVERTS</h1>
 <% @contests.each do |contest| %>
 <div class="row open-contests">
-   <div class="col-sm-8 contest-main">
 	 	<h3 class="text-center"><%= contest.title %></h3>
-	 	<p class="text-center"><%= contest.body %></p>
-    <p class="text-center"><%= link_to 'Participer et gagnez peut-être un iPad', contest, :class => 'btn btn-lg btn-primary' %>
-	 </div>
-   <div class="col-sm-4 contest-conditions">
-		 <h4 class="text-center">CONDITIONS</h4>
- 	 	 <h5 class="text-center">Date de participation</h5>
-		 <p class="text-center">Commence le <%= t contest.date_start %></p><p class="text-center">Termine le <%= t contest.date_end %></p>
- 	 	 <h5 class="text-center">Nombre de photos par participants : <%= contest.max_photos_per_user %></h5>
-	 </div>
+	 <h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
+	 <p class="text-center"><%= contest.body %></p>
+   <p class="text-center"><%= link_to 'Participer et gagnez peut-être un iPad', contest, :class => 'btn btn-lg btn-primary' %>
+ </div>
 </div>
 <% end %>
 
