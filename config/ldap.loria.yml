@@ -1,0 +1,22 @@
+development:
+  host: ildap.nancy.inria.fr
+  port: 636
+  base: dc=inria,dc=fr
+  method: :ssl
+  allow_anonymous: true
+
+test:
+  host: ildap.nancy.inria.fr
+  port: 636
+  base: dc=inria,dc=fr
+  method: :ssl
+  allow_anonymous: true
+
+production:
+  host: ildap.nancy.inria.fr
+  port: 636
+  method: :ssl
+  base: dc=inria,dc=fr
+  allow_anonymous: true
+
+
