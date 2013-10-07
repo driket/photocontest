@@ -62,6 +62,13 @@
 	
   <div class="container">
 
+		<% if notice %>
+		<div class="alert alert-info"><%= notice %></div>
+		<% end %>
+		<% if alert %>
+		<div class="alert alert-danger"><%= alert %></div>
+		<% end %>
+		
 		<!-- Main component for a primary marketing message or call to action -->
 	 	<%= yield %>
 
