@@ -56,7 +56,7 @@ class ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.save
-        format.html { redirect_to @contest, notice: 'Contest was successfully created.' }
+        format.html { redirect_to @contest, notice: 'Le concours a été créé.' }
         format.json { render json: @contest, status: :created, location: @contest }
       else
         format.html { render action: "new" }
@@ -72,7 +72,7 @@ class ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.update_attributes(params[:contest])
-        format.html { redirect_to @contest, notice: 'Contest was successfully updated.' }
+        format.html { redirect_to edit_contest_path(@contest), notice: 'Le concours a été mis à jour.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
