@@ -46,6 +46,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    dalli (2.6.4)
     erubis (2.7.0)
     execjs (2.0.2)
     fast_gettext (0.8.0)
@@ -143,6 +144,7 @@ PLATFORMS
 DEPENDENCIES
   activeldap
   coffee-rails (~> 3.2.1)
+  dalli
   jquery-fileupload-rails
   jquery-rails
   paperclip

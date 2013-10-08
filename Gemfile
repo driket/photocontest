@@ -20,6 +20,10 @@ gem 'jquery-fileupload-rails'
 # installation : https://github.com/thoughtbot/paperclip
 gem 'paperclip'
 
+# dalli - mem cache
+# installation : https://github.com/mperham/dalli
+gem 'dalli'
+
 # cas authentication
 gem 'rubycas-client-rails'
 
