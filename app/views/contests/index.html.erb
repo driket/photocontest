@@ -5,14 +5,30 @@
  </div>
 
 <h2 class="text-center plain-title discreet">CONCOURS OUVERTS</h2>
-<% @contests.each do |contest| %>
-<div class="row open-contests">
-	 	<h3 class="text-center"><%= contest.title %></h3>
-	 <h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
-	 <p class="text-center"><%= contest.description %></p>
-   <p class="text-center"><%= link_to contest.action_title, contest, :class => 'btn btn-lg btn-primary' %>
-</div>
+<% open_contests = Contest.open %>
+<% if open_contests.size > 0 %>
+	<% open_contests.each do |contest| %>
+	<div class="row open-contests">
+		 	<h3 class="text-center"><%= contest.title %></h3>
+		 <h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
+		 <p class="text-center"><%= contest.description %></p>
+	   <p class="text-center"><%= link_to contest.action_title, contest, :class => 'btn btn-lg btn-primary' %>
+	</div>
+	<% end %>
+<% else%>
+	<h5 class="text-center discreet">Il n'y a pas de concours ouvert actuellement.<h5>
 <% end %>
-
+	
 <h2 class="text-center plain-title discreet">CONCOURS CLOS</h2>
-<h5 class="text-center discreet">Il n'y a aucun concours clos enregistré<h5>
+<% closed_contests = Contest.closed %>
+<% if closed_contests.size > 0 %>
+	<% closed_contests.each do |contest| %>
+	<div class="row open-contests">
+		 	<h3 class="text-center discreet"><%= contest.title %></h3>
+		 <h4 class="text-center discreet">Terminé depuis <%= distance_of_time_in_words_to_now contest.date_end %></h4>
+		 <p class="text-center discreet"><%= contest.description %></p>
+	</div>
+	<% end %>
+<% else%>
+	<h5 class="text-center discreet">Il n'y a aucun concours clos enregistré<h5>
+<% end %>
