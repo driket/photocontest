@@ -4,7 +4,7 @@ class Contest < ActiveRecord::Base
   has_many :photos
   
   scope :open, lambda { where("date_start <= ? AND date_end >= ?", DateTime.now, DateTime.now) }
-  scope :closed, lambda { where("date_end >= ?", DateTime.now) }
+  scope :closed, lambda { where("date_end <= ?", DateTime.now) }
   
   def status
     if DateTime.now.to_i > date_end.to_i
