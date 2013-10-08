@@ -60,7 +60,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
-        format.html { redirect_to @photo, notice: 'Votre photo a été mise à jour.' }
+        format.html { redirect_to @photo.contest, notice: 'Votre photo a été mise à jour.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
