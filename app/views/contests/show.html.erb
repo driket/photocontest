@@ -34,5 +34,5 @@
 <p class="discreet">Nombre de photos par participant : <%= @contest.max_photos_per_user %></p>
  
 <% if is_admin? %>
-	<%= link_to 'Modifier le concours', edit_contest_path(@contest), :class => "btn btn-large btn-primary" %>
+	<%= link_to 'Modifier le concours', edit_contest_path(@contest), :class => "btn btn-large btn-warning" %>
 <% end %>
