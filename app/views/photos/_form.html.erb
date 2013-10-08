@@ -1,4 +1,4 @@
-<%= form_for(@photo, html: { :class => 'form-horizontal', :role => 'form'}) do |f| %>
+<%= form_for(@photo, html: { :class => 'form-horizontal', :role => 'form', :multipart => true}) do |f| %>
 
 	<div class="modal-header">
 		<% if @photo.new_record? %>
@@ -42,7 +42,7 @@
 	  <div class="form-group">
 	    <label for="exampleInputFile" class="col-sm-3 control-label">Photo</label>
 			<div class="col-sm-9">
-		    <input type="file" id="exampleInputFile">
+				<%= f.file_field :image %>
 		    <p class="help-block">Choisir une photo depuis votre ordinateur.</p>
 			</div>
 	  </div>
