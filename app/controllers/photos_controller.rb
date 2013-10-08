@@ -45,7 +45,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(params[:photo])
     @photo.user_uid = session[:cas_user]
-    user_photos = Photo.where(:user_uid => session[:cas_user])
+    user_photos = @photo.contest.photos.where(:user_uid => session[:cas_user])
     contest = @photo.contest
     respond_to do |format|
       if user_photos.size >= contest.max_photos_per_user
