@@ -56,7 +56,7 @@ class ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.save
-        format.html { redirect_to @contest, notice: 'Le concours a été créé.' }
+        format.html { redirect_to edit_contest_path(@contest), notice: 'Le concours a été créé.' }
         format.json { render json: @contest, status: :created, location: @contest }
       else
         format.html { render action: "new" }
