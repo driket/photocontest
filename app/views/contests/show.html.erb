@@ -7,7 +7,9 @@
 <div class="row">
 <% for photo in @my_photos %>
 	<div class="col-sm-4 photo-display text-center">
-		<h4><%= photo.title %></h4>
+		<div class="photo-title">
+			<h4><%= photo.title %></h4>
+		</div>
 		<div class="photo-frame">
 			<%= image_tag photo.image.url(:medium), :class => "img-responsive" %>
 		</div>
