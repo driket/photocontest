@@ -1,8 +1,12 @@
 <%= form_for(@photo, html: { :class => 'form-horizontal', :role => 'form'}) do |f| %>
 
 	<div class="modal-header">
+		<% if @photo.new_record? %>
 	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 	  <h4 class="modal-title">Ajouter une photo</h4>
+		<% else %>
+		<h4 class="modal-title">Modifier ma photo <span class="discreet">(<%= @photo.contest.title %>)</span></h4>
+		<% end %>
 	</div> <!-- /modal-header -->
 
 	<div class="modal-body">
@@ -46,8 +50,13 @@
 	</div>  <!-- /modal-body -->
 
 	<div class="modal-footer">
-	  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	  <%= f.submit 'ajouter la photo', :class =>  "btn btn-primary" %>
+		<% if @photo.new_record? %>
+	  <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+	  <%= f.submit 'Ajouter la photo', :class =>  "btn btn-primary" %>
+		<% else %>
+	  <%= link_to "Retour", @photo.contest, :class => "btn btn-default" %>
+	  <%= f.submit 'Modifier la photo', :class =>  "btn btn-primary" %>
+		<% end %>
 	</div><!-- /modal-footer -->
 
 <% end %> <!-- /form -->
