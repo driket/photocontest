@@ -42,8 +42,13 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(params[:photo])
     @photo.user_uid = session[:cas_user]
+    user_photos = Photo.where(:user_uid => session[:cas_user])
+    contest = @photo.contest
     respond_to do |format|
-      if @photo.save
+      if user_photos.size >= contest.max_photos_per_user
+        format.html { redirect_to @photo.contest, alert: 'Vous avez dépassé le nombre maximum de photo pour ce concours. Vous pouvez en supprimer.' }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      elsif @photo.save
         format.html { redirect_to @photo.contest, notice: 'Votre photo vient d\'être ajoutée.' }
         format.json { render json: @photo, status: :created, location: @photo }
       else
