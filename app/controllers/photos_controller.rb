@@ -48,7 +48,10 @@ class PhotosController < ApplicationController
     user_photos = @photo.contest.photos.where(:user_uid => session[:cas_user])
     contest = @photo.contest
     respond_to do |format|
-      if user_photos.size >= contest.max_photos_per_user
+      if @photo.contest.status != "open"
+        format.html { redirect_to @photo.contest, alert: 'Ce concours n\'est pas ouvert aux participations.' }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      elsif user_photos.size >= contest.max_photos_per_user
         format.html { redirect_to @photo.contest, alert: 'Vous avez dépassé le nombre maximum de photo pour ce concours. Vous pouvez en supprimer.' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       elsif @photo.save
