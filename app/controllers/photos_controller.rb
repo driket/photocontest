@@ -1,4 +1,7 @@
 class PhotosController < ApplicationController
+  
+  before_filter CASClient::Frameworks::Rails::Filter
+  
   # GET /photos
   # GET /photos.json
   def index
