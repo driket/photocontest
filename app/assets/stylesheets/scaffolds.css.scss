@@ -66,10 +66,19 @@ h4
 	color: #888;
 	}
 
+.my-photos
+	{
+	min-height: 300px;
+	}
+	.my-photos .no-photo
+		{
+		margin-top: 100px;
+		}
+
 .photo-display	
 	{
 	display: table;
-	margin: 25px auto 0px auto;
+	margin: 0px auto 0px auto;
 	}
 	
 	.photo-title
