@@ -13,6 +13,13 @@ gem 'unicorn'
 # use setting YML file for config
 gem 'settingslogic'
 
+# jquery file upload
+gem 'jquery-fileupload-rails'
+
+# paperclip : photo resizing (ImageMagick)
+# installation : https://github.com/thoughtbot/paperclip
+gem 'paperclip'
+
 # cas authentication
 gem 'rubycas-client-rails'
 
