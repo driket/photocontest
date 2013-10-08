@@ -1,7 +1,7 @@
 class ContestsController < ApplicationController
   
   before_filter CASClient::Frameworks::Rails::Filter, :except => :index
-  before_filter :check_if_admin, :except => [:index, :show, :login, :logout]
+  before_filter :ensure_is_admin, :except => [:index, :show, :login, :logout]
   
   def login
     redirect_to contests_url, notice: 'Vous êtes maintenant authentifié'
@@ -25,6 +25,8 @@ class ContestsController < ApplicationController
   # GET /contests/1.json
   def show
     @contest = Contest.find(params[:id])
+    @my_photos = @contest.photos.where(:user_uid => session[:cas_user])
+    @photo = Photo.new(:contest_id => @contest.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contest }
