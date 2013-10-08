@@ -9,7 +9,7 @@
 	<div class="col-sm-4 photo-display text-center">
 		<h4><%= photo.title %></h4>
 		<div class="photo-frame">
-			<img src="/assets/stan.png" class="img-responsive" />
+			<%= image_tag photo.image.url(:medium), :class => "img-responsive" %>
 		</div>
 		<%= photo.description %><br />
 		<%= link_to 'Modifier', edit_photo_path(photo), :class => "btn-sm" %>
