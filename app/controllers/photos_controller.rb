@@ -41,7 +41,7 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = Photo.new(params[:photo])
-
+    @photo.user_uid = session[:cas_user]
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo.contest, notice: 'Votre photo vient d\'être ajoutée.' }
@@ -57,7 +57,7 @@ class PhotosController < ApplicationController
   # PUT /photos/1.json
   def update
     @photo = Photo.find(params[:id])
-
+    @photo.user_uid = session[:cas_user]
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
         format.html { redirect_to @photo.contest, notice: 'Votre photo a été mise à jour.' }
