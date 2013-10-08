@@ -1,4 +1,4 @@
-<%= form_for(@contest) do |f| %>
+<%= form_for(@contest, html: { :class => 'form-horizontal', :role => 'form'}) do |f| %>
   <% if @contest.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contest.errors.count, "error") %> prohibited this contest from being saved:</h2>
@@ -11,47 +11,71 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, 'Titre', :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+			<%= f.text_field :title, :class => 'form-control', :placeholder => 'Titre' %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+
+  <div class="form-group">
+    <%= f.label :description, 'Description (courte)', :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+			<%= f.text_field :description, :class => 'form-control', :placeholder => 'Description' %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :action_title %><br />
-    <%= f.text_field :action_title %>
+
+  <div class="form-group">
+    <%= f.label :action_title, 'Titre de l\'action', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
+    <%= f.text_field :action_title, :class => 'form-control', :placeholder => 'Participer' %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.label :body, 'Texte du concours (plus long)', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
+    <%= f.text_area :body, :class => 'form-control', :placeholder => 'Texte du concours' %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :date_start %><br />
-    <%= f.datetime_select :date_start %>
+  <div class="form-group">
+    <%= f.label :date_start, 'Début du concours', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
+    <%= f.datetime_select :date_start, :class => 'form-control' %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :date_end %><br />
-    <%= f.datetime_select :date_end %>
+  <div class="form-group">
+    <%= f.label :date_end, 'Fin du concours', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
+    <%= f.datetime_select :date_end, :class => 'form-control'%>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :max_photos_per_user %><br />
-    <%= f.number_field :max_photos_per_user %>
+  <div class="form-group">
+    <%= f.label :max_photos_per_user, 'Nombre de photos maximum par participant', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
+    <%= f.number_field :max_photos_per_user, :class => 'form-control' %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :max_vote_per_user %><br />
+  <div class="form-group">
+    <%= f.label :max_vote_per_user, 'Vote maximum par utilisateur', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
     <%= f.number_field :max_vote_per_user %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :vote_start %><br />
+  <div class="form-group">
+    <%= f.label :vote_start, 'Début des votes', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
     <%= f.datetime_select :vote_start %>
+		</div>
   </div>
-  <div class="field">
-    <%= f.label :vote_end %><br />
+  <div class="form-group">
+    <%= f.label :vote_end, 'Fin des votes', :class => 'col-sm-3 control-label'%>
+		<div class="col-sm-9">
     <%= f.datetime_select :vote_end %>
+		</div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+		<div class="col-sm-9 col-sm-offset-3">
+    <%= f.submit "Modifer", :class => "btn btn-default" %>
+		</div>
   </div>
 <% end %>
