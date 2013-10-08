@@ -1,39 +1,53 @@
-<%= form_for(@photo) do |f| %>
+<%= form_for(@photo, html: { :class => 'form-horizontal', :role => 'form'}) do |f| %>
 
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h4 class="modal-title">Ajouter une image</h4>
-</div>
-<div class="modal-body">
-  <% if @photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  <h4 class="modal-title">Ajouter une photo</h4>
+	</div> <!-- /modal-header -->
 
-      <ul>
-      <% @photo.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<div class="modal-body">
+	  <% if @photo.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+	      <ul>
+	      <% @photo.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %> <!-- errors -->
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :rows => 10 %>
-  </div>
-  <div class="field">
-    <%= f.label :user_uid %><br />
-    <%= f.text_field :user_uid %>
-  </div>
-  <%= f.hidden_field :contest_id %>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <%= f.submit 'ajouter la photo', :class =>  "btn btn-primary" %>
-</div>
+		<!-- title -->
+	  <div class="form-group">
+	    <%= f.label :title, 'Titre', :class => 'col-sm-3 control-label' %>
+	    <div class="col-sm-9">
+				<%= f.text_field :title, :class => 'form-control', :placeholder => 'Titre' %>
+			</div>
+	  </div>
+		
+		<!-- description -->
+	  <div class="form-group">
+	    <%= f.label :description, 'Description', :class => 'col-sm-3 control-label' %>
+			<div class="col-sm-9">
+				<%= f.text_area :description, :class => 'form-control', :placeholder => 'Description', :rows => 5 %>
+			</div>
+		  <%= f.hidden_field :contest_id %>
+	  </div>
+		
+		<!-- photo upload -->
+	  <div class="form-group">
+	    <label for="exampleInputFile" class="col-sm-3 control-label">Photo</label>
+			<div class="col-sm-9">
+		    <input type="file" id="exampleInputFile">
+		    <p class="help-block">Choisir une photo depuis votre ordinateur.</p>
+			</div>
+	  </div>
+		
+	</div>  <!-- /modal-body -->
 
-<% end %>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	  <%= f.submit 'ajouter la photo', :class =>  "btn btn-primary" %>
+	</div><!-- /modal-footer -->
+
+<% end %> <!-- /form -->
