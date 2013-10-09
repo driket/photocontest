@@ -6,7 +6,7 @@ class Admin::ContestsController < ApplicationController
   # GET /contests
   # GET /contests.json
   def index
-    @contests = Contest.order(:created_at).reverse_order
+    @contests = Contest.order(:date_start).reverse_order
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @contests }
