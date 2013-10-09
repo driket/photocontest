@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
   
   def is_admin?
+    CASClient::Frameworks::Rails::Filter
     if !session[:cas_user]
       return false
     elsif !Settings.admin_list.include? session[:cas_user]
@@ -18,16 +19,23 @@ class ApplicationController < ActionController::Base
   end
   
   def is_connected?
+    CASClient::Frameworks::Rails::Filter
     if !session[:cas_user]
       return false
     else
       return true
     end
   end
+  
+  def ensure_is_connected
+    if !is_connected?
+      redirect_to '/', alert: 'Vous devez vous connecter pour effectuer cette action.'
+    end
+  end
     
   def ensure_is_admin
     if !is_admin?
-      redirect_to :back, alert: 'Vous navez pas les privilièges suffisants pour effectuer cette action.'
+      redirect_to '/', alert: 'Vous navez pas les privilièges suffisants pour effectuer cette action.'
     end
   end
   

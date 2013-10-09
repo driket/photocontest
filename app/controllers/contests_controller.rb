@@ -1,7 +1,6 @@
 class ContestsController < ApplicationController
   
   before_filter CASClient::Frameworks::Rails::Filter, :except => :index
-  before_filter :ensure_is_admin, :except => [:index, :show, :login, :logout]
   
   def login
     redirect_to contests_url, notice: 'Vous êtes maintenant authentifié'
