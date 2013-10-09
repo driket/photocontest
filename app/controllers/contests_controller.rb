@@ -13,8 +13,8 @@ class ContestsController < ApplicationController
   # GET /contests
   # GET /contests.json
   def index
-    @open_contests = Contest.open
-    @closed_contests = Contest.closed
+    @open_contests = Contest.open.order(:date_start).reverse_order
+    @closed_contests = Contest.closed.order(:date_start).reverse_order
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @contests }
