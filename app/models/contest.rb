@@ -5,6 +5,7 @@ class Contest < ActiveRecord::Base
   
   scope :open, lambda { where("date_start <= ? AND date_end >= ?", DateTime.now, DateTime.now) }
   scope :closed, lambda { where("date_end <= ?", DateTime.now) }
+  scope :on_vote, lambda { where("vote_start <= ? AND vote_end >= ?", DateTime.now, DateTime.now) }
   
   def status
     if DateTime.now.to_i > vote_end.to_i 

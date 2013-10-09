@@ -1,9 +1,17 @@
-<% @my_contests = ::Contest.open %>
+<% open_contests = ::Contest.open %>
+<% open_vote = ::Contest.on_vote %>
 <li class="dropdown <%= "active" if params[:controller]=='contests' and  params[:action]!='index'%>">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concourts ouverts <span class="badge"><%= @my_contests.size %></span><b class="caret"></b></a>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concours <span class="badge"><%= open_contests.size + open_vote.size %></span><b class="caret"></b></a>
   <ul class="dropdown-menu">
-		<% for contest in @my_contests %>
+		<li class="dropdown-header">Participations ouvertes</li>
+		<% for contest in open_contests %>
+    <li><%= link_to contest.title, contest %></li>
+		<% end %>
+		<li class="divider"></li>
+		<li class="dropdown-header">Votes ouverts</li>
+		<% for contest in open_vote %>
     <li><%= link_to contest.title, contest %></li>
 		<% end %>
   </ul>
 </li>
+
