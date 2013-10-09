@@ -3,7 +3,9 @@
 		<h4><%= photo.title %></h4>
 	</div>
 	<div class="photo-frame">
-		<%= image_tag photo.image.url(:medium), :class => "img-responsive" %>
+		<a href="<%= photo.image.url %>" rel="lightbox[]" title="<%= photo.title %>">
+			<%= image_tag photo.image.url(:medium), :class => "img-responsive" %>
+		</a>
 	</div>
 	<%= photo.description %><br />
 	<%= link_to 'Modifier', edit_photo_path(photo), :class => "btn-sm" %>

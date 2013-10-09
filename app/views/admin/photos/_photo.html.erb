@@ -3,7 +3,9 @@
 		<h4 class="discreet"><small><%= photo.title %></small></h4>
 	</div>
 	<div class="photo-frame">
-		<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
+		<a href="<%= photo.image.url %>" rel="lightbox[]" title="<%= photo.title %>">
+			<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
+		</a>
 	</div>
 	<%= photo.description %><br />
 	<%= link_to 'Contacter', "mailto:#{LdapUser.find(photo.user_uid).mail}?subject=A propos de votre photo \"#{photo.title}\" pour le concours photo.", :class => "btn-sm" %>
