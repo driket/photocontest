@@ -25,23 +25,23 @@
 <h3>Légende</h3>
 <div class="well well-lg">
 	<div class="row">
-		<span class="col-sm-2"><%= status_label('waiting') %></span>
+		<span class="col-sm-2">1-<%= status_label('waiting') %></span>
 		<span class="col-sm-10">Le concours n'a pas commencé, les utilisateurs ne le voient pas encore.</span>
 	</div>
 	<div class="row">
-		<span class="col-sm-2"><%= status_label('open') %></span>
+		<span class="col-sm-2">2-<%= status_label('open') %></span>
 		<span class="col-sm-10">Le concours a commencé, les utilisateurs peuvent participer.</span>
 	</div>
 	<div class="row">
-		<span class="col-sm-2"><%= status_label('finished') %></span>
+		<span class="col-sm-2">3-<%= status_label('finished') %></span>
 		<span class="col-sm-10">Les participations sont terminées, les utilisateurs ne peuvent pas encore voter.</span>
 	</div>
 	<div class="row">
-		<span class="col-sm-2"><%= status_label('vote_open') %></span>
+		<span class="col-sm-2">4-<%= status_label('vote_open') %></span>
 		<span class="col-sm-10">Les utilisateurs peuvent voter.</span>
 	</div>
 	<div class="row">
-		<span class="col-sm-2"><%= status_label('vote_closed') %></span>
+		<span class="col-sm-2">5-<%= status_label('vote_closed') %></span>
 		<span class="col-sm-10">Le concours et terminé et les utilisateurs ne peuvent plus voter.</span>
 	</div>
 </div>
