@@ -12,6 +12,12 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+
+# ignore settings
 /config/ldap.yml
 /config/settings.yml
+
+# ignore uploads
+/public/system
+
 /tmp
