@@ -16,17 +16,7 @@
 			<div class="row">
 			<% if @my_photos.size > 0 %>
 				<% for photo in @my_photos %>
-					<div class="col-sm-4 photo-display text-center">
-						<div class="photo-title">
-							<h4><%= photo.title %></h4>
-						</div>
-						<div class="photo-frame">
-							<%= image_tag photo.image.url(:medium), :class => "img-responsive" %>
-						</div>
-						<%= photo.description %><br />
-						<%= link_to 'Modifier', edit_photo_path(photo), :class => "btn-sm" %>
-						<%= link_to 'Supprimer', photo, method: :delete, data: { confirm: 'Voulez-vous supprimer cette photo ?' }, :class => "btn-sm" %>
-					</div>
+					<%= render :partial => '/photos/photo', :locals => { :photo => photo } %>
 				<% end %> <!-- for photo-->
 			<% else%>
 				<h4 class="text-center no-photo discreet">Ajoutez vos photos pour ce concours grâce au bouton ci dessous.<h4>
