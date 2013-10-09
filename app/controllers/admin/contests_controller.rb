@@ -1,5 +1,6 @@
 class Admin::ContestsController < ApplicationController
   
+  before_filter CASClient::Frameworks::Rails::Filter
   before_filter :ensure_is_admin
   
   # GET /contests
