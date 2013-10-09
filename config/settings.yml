@@ -1,6 +1,8 @@
 # config/application.yml
 defaults: &defaults
   cas_server: https://cas.inria.fr/cas
+  admin_list:
+    - villa
 
 development:
   mailer:
