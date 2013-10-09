@@ -15,7 +15,7 @@
 		 	 	<td><%= contest.description %></td>
 		 	 	<td><%= contest_status_sentence(contest) %></td>
 		 	 	<td class="text-center"><span class="badge"><%= contest.photos.size %></span></td>
-		 	 	<td><%= link_to "Modifier", edit_admin_contest_path(contest) %></td>
+		 	 	<td><%= link_to "administrer", edit_admin_contest_path(contest) %></td>
 		 	 	<td class="text-right"><%= status_label(contest.status) %></td>
 			</tr>
 		<% end %>
