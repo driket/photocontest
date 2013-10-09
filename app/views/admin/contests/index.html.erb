@@ -5,6 +5,7 @@
 			<th>Titre</th>
 			<th>Description</th>
 			<th>Dates</th>
+			<th>Photos</th>
 			<th>Actions</th>
 	 	 	<th class="text-right">Status</th>
 		</thead>
@@ -13,6 +14,7 @@
 				<td><%= contest.title %></td>
 		 	 	<td><%= contest.description %></td>
 		 	 	<td><%= contest_status_sentence(contest) %></td>
+		 	 	<td class="text-center"><span class="badge"><%= contest.photos.size %></span></td>
 		 	 	<td><%= link_to "Modifier", edit_admin_contest_path(contest) %></td>
 		 	 	<td class="text-right"><%= status_label(contest.status) %></td>
 			</tr>
