@@ -1,0 +1,11 @@
+<div class="col-xs-2 photo-display text-center">
+	<div class="photo-title">
+		<h4 class="discreet"><small><%= photo.title %></small></h4>
+	</div>
+	<div class="photo-frame">
+		<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
+	</div>
+	<%= photo.description %><br />
+	<%= link_to 'Contacter', edit_photo_path(photo), :class => "btn-sm" %>
+	<%= link_to 'Supprimer', photo, method: :delete, data: { confirm: 'Voulez-vous supprimer cette photo ?' }, :class => "btn-sm" %>
+</div>

@@ -27,6 +27,7 @@ class Admin::ContestsController < ApplicationController
   # GET /contests/1/edit
   def edit
     @contest = Contest.find(params[:id])
+    @photos = @contest.photos
   end
 
   # POST /contests

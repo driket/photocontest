@@ -21,6 +21,15 @@
 		</div>
 	  <div class="tab-pane" id="admin-contest-photos">
 			<h3>Photos</h3>
+			<div class="row">
+			<% if @photos.size > 0 %>
+				<% for photo in @photos %>
+					<%= render :partial => '/admin/photos/photo', :locals => { :photo => photo } %>
+				<% end %> <!-- for photo-->
+			<% else%>
+				<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
+			<% end %>
+			</div>		
 		</div>
 	  <div class="tab-pane" id="admin-contest-votes">
 			<h3>Votes</h3>
