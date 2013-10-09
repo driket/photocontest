@@ -1,39 +1,9 @@
 <h2 class="modal-title">Administrer le concours</h2>
 <div class="row">
-	<div class="col-sm-3">
-		<p class="discreet">Status du concours</p>
-	</div>
-	<div class="col-sm-9 text-right">
+	<div class="col-sm-12 text-right">
 		<p> 
-			<% if @contest.status == "waiting" %>
-				Le concours commencera dans <%= distance_of_time_in_words_to_now @contest.date_start %> et durera <%= distance_of_time_in_words(@contest.date_start,@contest.date_end) %>
-				<span class="label label-warning label-sm">En attente</span>
-			<% elsif @contest.status == "open" %>
-				Le concours terminera dans <%= distance_of_time_in_words_to_now @contest.date_end %>
-				<span class="label label-danger label-sm">En cours</span>
-			<% elsif @contest.status == "finished" %>
-				Le concours est terminé depuis <%= distance_of_time_in_words_to_now @contest.date_end %>
-				<span class="label label-default label-sm">Terminé</span>
-			<% end %>
-		</p>
-	</div>
-</div>
-<div class="row">
-	<div class="col-sm-3">
-		<p class="discreet">Status des votes</p>
-	</div>
-	<div class="col-sm-9 text-right">
-		<p> 
-			<% if @contest.vote_status == "waiting" %>
-				Les votes commenceront dans <%= distance_of_time_in_words_to_now @contest.vote_start %> et dureront <%= distance_of_time_in_words(@contest.vote_start, @contest.vote_end) %>
-				<span class="label label-warning label-sm">En attente</span>
-			<% elsif @contest.vote_status == "open" %>
-				Les votes termineront dans <%= distance_of_time_in_words_to_now @contest.vote_end %>
-				<span class="label label-danger label-sm">En cours</span>
-			<% elsif @contest.vote_status == "finished" %>
-				Les votes sont terminés depuis <%= distance_of_time_in_words_to_now @contest.vote_end %>
-				<span class="label label-default label-sm">Terminé</span>
-			<% end %>
+			<span class="discreet"><%= status_sentence(@contest) %></span>
+			<%= status_label(@contest) %>
 		</p>
 	</div>
 </div>
