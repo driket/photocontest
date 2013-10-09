@@ -9,6 +9,11 @@ PhotoContest::Application.routes.draw do
       get 'logout'
     end
    end
+   
+  namespace :admin do
+    resources :photos
+    resources :contests
+  end
 
   # 
   # The priority is based upon order of creation:
