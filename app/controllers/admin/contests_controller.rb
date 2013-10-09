@@ -36,7 +36,7 @@ class Admin::ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.save
-        format.html { redirect_to edit_contest_path(@contest), notice: 'Le concours a été créé.' }
+        format.html { redirect_to edit_admin_contest_path(@contest), notice: 'Le concours a été créé.' }
         format.json { render json: @contest, status: :created, location: @contest }
       else
         format.html { render action: "new" }
@@ -52,7 +52,7 @@ class Admin::ContestsController < ApplicationController
 
     respond_to do |format|
       if @contest.update_attributes(params[:contest])
-        format.html { redirect_to edit_contest_path(@contest), notice: 'Le concours a été mis à jour.' }
+        format.html { redirect_to edit_admin_contest_path(@contest), notice: 'Le concours a été mis à jour.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -68,7 +68,7 @@ class Admin::ContestsController < ApplicationController
     @contest.destroy
 
     respond_to do |format|
-      format.html { redirect_to contests_url }
+      format.html { redirect_to admin_contests_url }
       format.json { head :no_content }
     end
   end
