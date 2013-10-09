@@ -7,7 +7,11 @@ class Contest < ActiveRecord::Base
   scope :closed, lambda { where("date_end <= ?", DateTime.now) }
   
   def status
-    if DateTime.now.to_i > date_end.to_i
+    if DateTime.now.to_i > vote_end.to_i 
+      return "vote_closed"
+    elsif DateTime.now.to_i > vote_start.to_i and DateTime.now.to_i < vote_end.to_i
+      return "vote_open"
+    elsif DateTime.now.to_i > date_end.to_i and DateTime.now.to_i < vote_start.to_i
       return "finished"
     elsif DateTime.now.to_i > date_start.to_i and DateTime.now.to_i < date_end.to_i
       return "open"
@@ -16,13 +20,4 @@ class Contest < ActiveRecord::Base
     end
   end
   
-  def vote_status
-    if DateTime.now.to_i > vote_end.to_i
-      return "finished"
-    elsif DateTime.now.to_i > vote_start.to_i and DateTime.now.to_i < vote_end.to_i
-      return "open"
-    elsif DateTime.now.to_i < vote_start.to_i
-      return "waiting"
-    end
-  end
 end
