@@ -14,7 +14,8 @@ class ContestsController < ApplicationController
   # GET /contests
   # GET /contests.json
   def index
-    @contests = Contest.all
+    @open_contests = Contest.open
+    @closed_contests = Contest.closed
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @contests }

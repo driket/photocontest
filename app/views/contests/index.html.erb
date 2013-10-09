@@ -5,9 +5,8 @@
  </div>
 
 <h2 class="text-center plain-title discreet">CONCOURS OUVERTS</h2>
-<% open_contests = Contest.open %>
-<% if open_contests.size > 0 %>
-	<% open_contests.each do |contest| %>
+<% if @open_contests.size > 0 %>
+	<% @open_contests.each do |contest| %>
 	<div class="row open-contests">
 		 	<h3 class="text-center"><%= contest.title %></h3>
 		 <h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
@@ -20,9 +19,8 @@
 <% end %>
 	
 <h2 class="text-center plain-title discreet">CONCOURS CLOS</h2>
-<% closed_contests = Contest.closed %>
-<% if closed_contests.size > 0 %>
-	<% closed_contests.each do |contest| %>
+<% if @closed_contests.size > 0 %>
+	<% @closed_contests.each do |contest| %>
 	<div class="row open-contests">
 		 	<h3 class="text-center discreet"><%= contest.title %></h3>
 		 <h4 class="text-center discreet">Terminé depuis <%= distance_of_time_in_words_to_now contest.date_end %></h4>
