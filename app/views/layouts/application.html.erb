@@ -21,12 +21,12 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/contests">Accueil</a></li>
+          <li class="<%= "active" if params[:controller]=='contests' and  params[:action]=='index'%>"><a href="/contests">Accueil</a></li>
 					<% if is_connected? %>
 						<%= render :partial => 'contests/navbar_list' %>
 					<% end %>
 					<% if is_admin? %>
-          <li class="dropdown">
+          <li class="dropdown <%= "active" if params[:controller]=='admin/contests' %>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrateur <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="/admin/contests">Tous les concours&nbsp;<span class="badge pull-right"><%= Contest.all.size %></span></a></li>
