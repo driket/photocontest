@@ -5,6 +5,7 @@
 			<th>Titre</th>
 			<th>Description</th>
 			<th>Dates</th>
+			<th>Actions</th>
 	 	 	<th class="text-right">Status</th>
 		</thead>
 		<% for contest in @contests.each %>
@@ -12,6 +13,7 @@
 				<td><%= contest.title %></td>
 		 	 	<td><%= contest.description %></td>
 		 	 	<td><%= contest_status_sentence(contest) %></td>
+		 	 	<td><%= link_to "Modifier", edit_admin_contest_path(contest) %></td>
 		 	 	<td class="text-right"><%= status_label(contest.status) %></td>
 			</tr>
 		<% end %>
