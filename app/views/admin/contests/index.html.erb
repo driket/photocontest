@@ -4,13 +4,15 @@
 		<thead>
 			<th>Titre</th>
 			<th>Description</th>
+			<th>Dates</th>
 	 	 	<th class="text-right">Status</th>
 		</thead>
 		<% for contest in @contests.each %>
 			<tr>
 				<td><%= contest.title %></td>
 		 	 	<td><%= contest.description %></td>
-		 	 	<td class="text-right"><%= status_label(contest)%></td>
+		 	 	<td><%= contest_status_sentence(contest) %></td>
+		 	 	<td class="text-right"><%= status_label(contest.status)%></td>
 			</tr>
 		<% end %>
 	</table>

@@ -1,8 +1,8 @@
 <h1><%= @contest.title %></h1>
 
 <h3>
-	<%= status_label(@contest) %>
-	<span class="discreet"><%= status_sentence(@contest) %></span>
+	<%= status_label(@contest.status) %>
+	<span class="discreet"><%= contest_status_sentence(@contest) %></span>
 </h3>
 
 <p><%= @contest.body %></p>

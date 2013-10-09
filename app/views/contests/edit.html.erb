@@ -2,8 +2,8 @@
 <div class="row">
 	<div class="col-sm-12 text-right">
 		<p> 
-			<span class="discreet"><%= status_sentence(@contest) %></span>
-			<%= status_label(@contest) %>
+			<span class="discreet"><%= contest_status_sentence(@contest) %></span>
+			<%= status_label(@contest.status) %>
 		</p>
 	</div>
 </div>
