@@ -1,0 +1,13 @@
+<div class="modal-body">
+
+	<div class="row">
+	<% if photos.size > 0 %>
+		<% for photo in photos %>
+			<%= render :partial => '/photos/photo_small', :locals => { :photo => photo } %>
+		<% end %> <!-- for photo-->
+	<% else%>
+		<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
+	<% end %>
+	</div>		
+
+</div>
