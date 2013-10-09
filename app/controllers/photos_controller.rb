@@ -68,9 +68,11 @@ class PhotosController < ApplicationController
   # PUT /photos/1.json
   def update
     @photo = Photo.find(params[:id])
-    @photo.user_uid = session[:cas_user]
     respond_to do |format|
-      if @photo.update_attributes(params[:photo])
+      if @photo.user_uid != session[:cas_user]
+        format.html { redirect_to @photo.contest, alert: 'Vous ne pouvez pas modifier cette photo.' }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      elsif @photo.update_attributes(params[:photo])
         format.html { redirect_to @photo.contest, notice: 'Votre photo a été mise à jour.' }
         format.json { head :no_content }
       else
@@ -84,11 +86,16 @@ class PhotosController < ApplicationController
   # DELETE /photos/1.json
   def destroy
     @photo = Photo.find(params[:id])
-    @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Votre photo vient a bien été supprimée.'}
-      format.json { head :no_content }
+      if @photo.user_uid != session[:cas_user]
+        format.html { redirect_to @photo.contest, alert: 'Vous ne pouvez pas supprimer cette photo.' }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      else
+        @photo.destroy
+        format.html { redirect_to :back, notice: 'Votre photo vient a bien été supprimée.'}
+        format.json { head :no_content }
+      end
     end
   end
 end
