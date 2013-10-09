@@ -5,12 +5,12 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+    #@photos = Photo.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @photos }
-    end
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @photos }
+    #end
   end
 
   # GET /photos/1
@@ -19,8 +19,13 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @photo }
+      if @photo.user_uid != session[:cas_user]
+        format.html { redirect_to @photo.contest, alert: 'Vous ne pouvez pas afficher cette photo.' }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      else
+        format.html # show.html.erb
+        format.json { render json: @photo }
+      end
     end
   end
 
