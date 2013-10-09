@@ -8,37 +8,7 @@
 <p><%= @contest.body %></p>
 
 <% if @contest.status == "open" %>
-	<div class="panel panel-default my-photos">
-	  <div class="panel-heading">
-	    <h3 class="panel-title">Mes photos</h3>
-	  </div>
-	  <div class="panel-body">
-			<div class="row">
-			<% if @my_photos.size > 0 %>
-				<% for photo in @my_photos %>
-					<%= render :partial => '/photos/photo', :locals => { :photo => photo } %>
-				<% end %> <!-- for photo-->
-			<% else%>
-				<h4 class="text-center no-photo discreet">Ajoutez vos photos pour ce concours grâce au bouton ci dessous.<h4>
-			<% end %>
-			</div>		
-	  </div>
-	</div>
 
-<div class="modal fade" id="add-picture-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-			<%= render 'photos/form' %>
-		</div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<hr style="border:none; margin-top: 50px"/>
-
-<!-- Button trigger modal -->
-<p class="text-center">
-	<a data-toggle="modal" href="#add-picture-modal" class="btn btn-primary">Ajouter une photo</a>
-</p>
-<p class="discreet text-center">Nombre de photos par participant : <%= @contest.max_photos_per_user %></p>
+<%= render :partial => 'contests/photo_panel', :locals => { :photos => @my_photos, :contest => @contest }%>
  
 <% end %>
