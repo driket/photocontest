@@ -2,6 +2,10 @@ class PhotosController < ApplicationController
   
   before_filter CASClient::Frameworks::Rails::Filter
   
+  def user_is_owner?(photo)
+    @photo.user_uid == session[:cas_user]    
+  end
+   
   # GET /photos
   # GET /photos.json
   def index
@@ -43,6 +47,9 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
+    if !user_is_owner?(@photo)
+      redirect_to @photo.contest, alert: 'Vous ne pouvez pas afficher cette photo.'
+    end
   end
 
   # POST /photos
@@ -74,7 +81,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     respond_to do |format|
-      if @photo.user_uid != session[:cas_user]
+      if !user_is_owner?(@photo)
         format.html { redirect_to @photo.contest, alert: 'Vous ne pouvez pas modifier cette photo.' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       elsif @photo.update_attributes(params[:photo])
@@ -93,7 +100,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
-      if @photo.user_uid != session[:cas_user]
+      if !user_is_owner?(@photo)
         format.html { redirect_to @photo.contest, alert: 'Vous ne pouvez pas supprimer cette photo.' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       else
