@@ -75,7 +75,11 @@
   </div>
   <div class="form-group">
 		<div class="col-sm-9 col-sm-offset-3">
-    <%= f.submit "Modifer", :class => "btn btn-default" %>
+		<% if @contest.new_record? %>
+			<%= f.submit "Créer le concours", :class => "btn btn-primary" %>
+		<% else %>
+			<%= f.submit "Modifer le concours", :class => "btn btn-primary" %>
+		<% end %>
 		</div>
   </div>
 <% end %>
