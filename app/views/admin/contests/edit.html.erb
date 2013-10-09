@@ -8,13 +8,23 @@
 	</div>
 </div>
 
-<ul class="nav nav-tabs" id="myTab">
-  <li class="active"><a href="#home">Modifier</a></li>
-  <li><a href="#profile">Participations <span class="badge"><%= @contest.photos.size %></span></a></li>
-  <li><a href="#messages">Votes <span class="badge">0</span></a></li>
+<ul class="nav nav-tabs" id="contest-admin-tabs">
+  <li class="active"><a href="#admin-contest-edit" data-toggle="tab">Modifier</a></li>
+  <li><a href="#admin-contest-photos" data-toggle="tab">Participations <span class="badge"><%= @contest.photos.size %></span></a></li>
+  <li><a href="#admin-contest-votes" data-toggle="tab">Votes <span class="badge">0</span></a></li>
 </ul>
 
 <div class="modal-body">
-<%= render 'form' %>
+	<div class="tab-content">
+	  <div class="tab-pane active" id="admin-contest-edit">
+			<%= render 'form' %>
+		</div>
+	  <div class="tab-pane" id="admin-contest-photos">
+			<h3>Photos</h3>
+		</div>
+	  <div class="tab-pane" id="admin-contest-votes">
+			<h3>Votes</h3>
+		</div>
+	</div>
 </div>
 
