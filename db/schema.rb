@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131008125342) do
+ActiveRecord::Schema.define(:version => 20131014131205) do
 
   create_table "contests", :force => true do |t|
     t.string   "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20131008125342) do
     t.datetime "updated_at",                                    :null => false
     t.string   "action_title",        :default => "participer"
     t.string   "description"
+    t.string   "vote_action_title"
   end
 
   create_table "photos", :force => true do |t|
