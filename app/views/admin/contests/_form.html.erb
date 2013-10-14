@@ -31,12 +31,21 @@
     <%= f.text_field :action_title, :class => 'form-control', :placeholder => 'Participer' %>
 		</div>
   </div>
+	
+  <div class="form-group">
+    <%= f.label :vote_action_title, 'Action de votes', :class => 'col-sm-3 control-label' %>
+		<div class="col-sm-9">
+    <%= f.text_field :vote_action_title, :class => 'form-control', :placeholder => 'Voter' %>
+		</div>
+  </div>
+	
   <div class="form-group">
     <%= f.label :body, 'Texte du concours (plus long)', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
     <%= f.text_area :body, :class => 'form-control', :placeholder => 'Texte du concours' %>
 		</div>
   </div>
+	
   <div class="form-group">
     <%= f.label :date_start, 'Début du concours', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
