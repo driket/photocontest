@@ -22,10 +22,14 @@
 <% if @on_vote_contests.size > 0 %>
 	<% @on_vote_contests.each do |contest| %>
 	<div class="row open-contests">
-		 	<h3 class="text-center"><%= contest.title %></h3>
-		 <h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
-		 <p class="text-center"><%= contest.description %></p>
-	   <p class="text-center"><%= link_to contest.action_title, contest, :class => 'btn btn-lg btn-primary' %>
+		<h3 class="text-center"><%= contest.title %></h3>
+		<h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
+		<p class="text-center"><%= contest.description %></p>
+		<% if contest.status == "open" %>
+			<p class="text-center"><%= link_to contest.action_title, contest, :class => 'btn btn-lg btn-primary' %>
+		<% else %>
+			<p class="text-center"><%= link_to contest.vote_action_title, contest, :class => 'btn btn-lg btn-primary' %>
+		<% end %>
 	</div>
 	<% end %>
 <% else%>
