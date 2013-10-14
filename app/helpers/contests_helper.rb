@@ -6,7 +6,7 @@ module ContestsHelper
   	elsif status == "open"
   		raw '<span class="label label-danger label-sm">Participations ouvertes</span>'
   	elsif status == "finished" 
-  		raw '<span class="label label-success label-sm">Participations terminées</span>'
+  		raw '<span class="label label-default label-sm">Participations terminées</span>'
   	elsif status == "vote_open" 
   		raw '<span class="label label-danger label-sm">Votes en cours</span>'
   	elsif status == "vote_closed" 
