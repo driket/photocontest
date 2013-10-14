@@ -105,7 +105,7 @@ class PhotosController < ApplicationController
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       else
         @photo.destroy
-        format.html { redirect_to :back, notice: 'Votre photo vient a bien été supprimée.'}
+        format.html { redirect_to :back, notice: 'Votre photo a bien été supprimée.'}
         format.json { head :no_content }
       end
     end
