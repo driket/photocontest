@@ -15,6 +15,8 @@ class ContestsController < ApplicationController
   def index
     @open_contests = Contest.open.order(:date_start).reverse_order
     @closed_contests = Contest.closed.order(:date_start).reverse_order
+    @on_vote_contests = Contest.on_vote.order(:date_start).reverse_order
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @contests }
