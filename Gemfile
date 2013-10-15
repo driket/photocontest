@@ -5,7 +5,16 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'   #local minimal db
+  gem 'railroady' #generate diagram in svg format
+end
+
+group :production do
+  gem 'mysql2'
+  gem 'therubyracer'
+end
+
 
 # handle more requests than WEBrick
 gem 'unicorn'          
