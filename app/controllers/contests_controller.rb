@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 class ContestsController < ApplicationController
   
   before_filter CASClient::Frameworks::Rails::Filter, :except => :index
