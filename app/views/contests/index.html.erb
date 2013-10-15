@@ -4,12 +4,12 @@
    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
  </div>
 
-<h2 class="text-center plain-title discreet">CONCOURS OUVERTS</h2>
 <% if @open_contests.size > 0 %>
+<h2 class="text-center plain-title discreet">CONCOURS OUVERTS</h2>
 	<% @open_contests.each do |contest| %>
 	<div class="row open-contests">
 		 	<h3 class="text-center"><%= contest.title %></h3>
-		 <h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
+		 <h4 class="text-center text-danger">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
 		 <p class="text-center"><%= contest.description %></p>
 	   <p class="text-center"><%= link_to contest.action_title, contest, :class => 'btn btn-lg btn-primary' %>
 	</div>
@@ -18,12 +18,12 @@
 	<h5 class="text-center discreet">Il n'y a pas de concours ouvert actuellement.<h5>
 <% end %>
 
-<h2 class="text-center plain-title discreet">VOTES EN COURS</h2>
 <% if @on_vote_contests.size > 0 %>
+<h2 class="text-center plain-title discreet">VOTES EN COURS</h2>
 	<% @on_vote_contests.each do |contest| %>
 	<div class="row open-contests">
 		<h3 class="text-center"><%= contest.title %></h3>
-		<h4 class="text-center discreet">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
+		<h4 class="text-center text-danger">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
 		<p class="text-center"><%= contest.description %></p>
 		<% if contest.status == "open" %>
 			<p class="text-center"><%= link_to contest.action_title, contest, :class => 'btn btn-lg btn-primary' %>
@@ -32,8 +32,10 @@
 		<% end %>
 	</div>
 	<% end %>
-<% else%>
-	<h5 class="text-center discreet">Il n'y a pas de votes ouvert actuellement.<h5>
+<% end %>
+
+<% if @open_contests.size == 0 and @on_vote_contests.size == 0 %>
+	<h5 class="text-center discreet">Il n'y a pas de concours ouvert actuellement.<h5>
 <% end %>
 
 <!-- 
