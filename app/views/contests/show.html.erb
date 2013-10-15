@@ -5,7 +5,7 @@
 	<span class="discreet"><%= contest_status_sentence(@contest) %></span>
 </h3>
 
-<p><%= @contest.body %></p>
+<p style="margin-top:20px;"><%= simple_format @contest.body %></p>
 
 <% if @contest.status == "open" %>
 	<%= render :partial => 'contests/photo_panel', :locals => { :photos => @my_photos, :contest => @contest }%>
