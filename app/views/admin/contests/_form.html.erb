@@ -14,35 +14,35 @@
   <div class="form-group">
     <%= f.label :title, 'Titre', :class => 'col-sm-3 control-label' %>
     <div class="col-sm-9">
-			<%= f.text_field :title, :class => 'form-control', :placeholder => 'Titre' %>
+			<%= f.text_field :title, :class => 'form-control', :placeholder => 'Mon super concours' %>
 		</div>
   </div>
 
   <div class="form-group">
-    <%= f.label :description, 'Description (première page)', :class => 'col-sm-3 control-label' %>
+    <%= f.label :description, 'Texte d\'accroche (première page)', :class => 'col-sm-3 control-label' %>
     <div class="col-sm-9">
-			<%= f.text_area :description, :rows => "5" , :class => 'form-control', :placeholder => 'Description' %>
+			<%= f.text_area :description, :rows => "5" , :class => 'form-control', :placeholder => 'Description', 'data-toggle' => "tooltip", 'title' => "apparait sur la première page, doit convaincre le visiteur de participer au concours" %>
 		</div>
   </div>
 
   <div class="form-group">
     <%= f.label :action_title, 'Titre du bouton de participation', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
-    <%= f.text_field :action_title, :class => 'form-control', :placeholder => 'Participer' %>
-		</div>
+    <%= f.text_field :action_title, :class => 'form-control', :placeholder => 'Participer', 'data-toggle' => "tooltip", 'title' => "si possible, commençant par un verbe à l'infinitif (appel à l'action)" %>
+	</div>
   </div>
 	
   <div class="form-group">
     <%= f.label :vote_action_title, 'Titre du bouton d\'invitation à voter', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
-    <%= f.text_field :vote_action_title, :class => 'form-control', :placeholder => 'Voter' %>
+    <%= f.text_field :vote_action_title, :class => 'form-control', :placeholder => 'Voter', 'data-toggle' => "tooltip", 'title' => "si possible, commençant par un verbe à l'infinitif (appel à l'action)" %>
 		</div>
   </div>
 	
   <div class="form-group">
     <%= f.label :body, 'Détails du concours (plus long)', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
-    <%= f.text_area :body, :class => 'form-control', :placeholder => 'Texte du concours' %>
+    <%= f.text_area :body, :rows => 10, :class => 'form-control', :placeholder => 'Détails du concours' %>
 		</div>
   </div>
 	
