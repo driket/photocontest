@@ -4,3 +4,4 @@
 
 $ ->
 	$('#contest-admin-tabs').tab()
+	$('.form-control').tooltip()
