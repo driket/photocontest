@@ -19,7 +19,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :description, 'Texte d\'accroche (première page)', :class => 'col-sm-3 control-label' %>
+    <%= f.label :description, 'Texte d\'accroche', :class => 'col-sm-3 control-label' %>
     <div class="col-sm-9">
 			<%= f.text_area :description, :rows => "5" , :class => 'form-control', :placeholder => 'Description', 'data-toggle' => "tooltip", 'title' => "apparait sur la première page, doit convaincre le visiteur de participer au concours" %>
 		</div>
@@ -40,9 +40,9 @@
   </div>
 	
   <div class="form-group">
-    <%= f.label :body, 'Détails du concours (plus long)', :class => 'col-sm-3 control-label' %>
+    <%= f.label :body, 'Détails du concours', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
-    <%= f.text_area :body, :rows => 10, :class => 'form-control', :placeholder => 'Détails du concours' %>
+    <%= f.text_area :body, :rows => 10, :class => 'form-control', :placeholder => 'Détails du concours', 'data-toggle' => "tooltip", 'title' => "apparait sur la 2ème page. Le texte peut être plus long car le visiteur est déjà potentiellement intéressé (il a cliqué sur le bouton de participation)." %>
 		</div>
   </div>
 	
