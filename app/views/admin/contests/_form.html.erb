@@ -19,28 +19,28 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :description, 'Description (courte)', :class => 'col-sm-3 control-label' %>
+    <%= f.label :description, 'Description (première page)', :class => 'col-sm-3 control-label' %>
     <div class="col-sm-9">
-			<%= f.text_field :description, :class => 'form-control', :placeholder => 'Description' %>
+			<%= f.text_area :description, :rows => "5" , :class => 'form-control', :placeholder => 'Description' %>
 		</div>
   </div>
 
   <div class="form-group">
-    <%= f.label :action_title, 'Titre de l\'action', :class => 'col-sm-3 control-label' %>
+    <%= f.label :action_title, 'Titre du bouton de participation', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
     <%= f.text_field :action_title, :class => 'form-control', :placeholder => 'Participer' %>
 		</div>
   </div>
 	
   <div class="form-group">
-    <%= f.label :vote_action_title, 'Action de votes', :class => 'col-sm-3 control-label' %>
+    <%= f.label :vote_action_title, 'Titre du bouton d\'invitation à voter', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
     <%= f.text_field :vote_action_title, :class => 'form-control', :placeholder => 'Voter' %>
 		</div>
   </div>
 	
   <div class="form-group">
-    <%= f.label :body, 'Texte du concours (plus long)', :class => 'col-sm-3 control-label' %>
+    <%= f.label :body, 'Détails du concours (plus long)', :class => 'col-sm-3 control-label' %>
 		<div class="col-sm-9">
     <%= f.text_area :body, :class => 'form-control', :placeholder => 'Texte du concours' %>
 		</div>
