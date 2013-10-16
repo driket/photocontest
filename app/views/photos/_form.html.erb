@@ -36,7 +36,7 @@
 	  <div class="form-group">
 	    <%= f.label :title, 'Titre', :class => 'col-sm-3 control-label' %>
 	    <div class="col-sm-9">
-				<%= f.text_field :title, :class => 'form-control', :placeholder => 'Titre' %>
+				<%= f.text_field :title, :class => 'form-control', :placeholder => 'Titre', :maxlength => "65" %>
 			</div>
 	  </div>
 		
@@ -44,7 +44,7 @@
 	  <div class="form-group">
 	    <%= f.label :description, 'Description', :class => 'col-sm-3 control-label' %>
 			<div class="col-sm-9">
-				<%= f.text_area :description, :class => 'form-control max-rows-limit', :placeholder => 'Description', :rows => 4 %>
+				<%= f.text_area :description, :class => 'form-control max-rows-limit', :placeholder => 'Description', :rows => 4, :maxlength => "128" %>
 			</div>
 		  <%= f.hidden_field :contest_id %>
 	  </div>
