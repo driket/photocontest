@@ -35,7 +35,10 @@
 </p>
 <p class="discreet text-center">Nombre de photos par participant : <%= contest.max_photos_per_user %></p>
 <% if photos.size >= contest.max_photos_per_user %>
+<p class="text-center text-danger">
+	Merci d'avoir participé au concours, vous avez atteint la limite de photos par participant.
+</p>
 <p class="discreet text-center">
-	Vous pouvez supprimer d'autres photos afin de pouvoir en ajouter un nouvelle.
+	Vous pouvez supprimer d'autres photos afin de pouvoir en ajouter une nouvelle.
 </p>
 <% end %>
