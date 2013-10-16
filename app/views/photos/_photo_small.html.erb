@@ -7,6 +7,6 @@
 			<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
 		</a>
 	</div>
-	<%= simple_format truncate photo.description, :length => 128 %><br />
+	<small><%= simple_format truncate photo.description, :length => 128 %></small>
 	<%= link_to 'J\'aime', "", :class => "btn-sm btn-default" %>
 </div>

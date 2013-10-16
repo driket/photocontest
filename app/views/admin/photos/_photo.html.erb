@@ -7,7 +7,7 @@
 			<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
 		</a>
 	</div>
-	<%= simple_format truncate photo.description, :length => 128 %><br />
+		<small><%= simple_format truncate photo.description, :length => 128 %></small>
 	<%= link_to 'Contacter', "mailto:#{LdapUser.find(photo.user_uid).mail}?subject=A propos de votre photo \"#{photo.title}\" pour le concours photo.", :class => "btn-sm" %>
 	<%= link_to 'Supprimer', photo, method: :delete, data: { confirm: 'Voulez-vous supprimer cette photo ?' }, :class => "btn-sm" %>
 </div>
