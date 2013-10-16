@@ -1,6 +1,6 @@
 <div class="col-sm-4 photo-display text-center">
 	<div class="photo-title">
-		<h4><%= photo.title %></h4>
+		<h4><%= truncate photo.title, :length => 67 %></h4>
 	</div>
 	<div class="photo-frame">
 		<a href="<%= photo.image.url %>" rel="lightbox[]" title="<%= photo.title %>">
