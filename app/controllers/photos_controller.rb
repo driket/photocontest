@@ -69,7 +69,7 @@ class PhotosController < ApplicationController
         format.html { redirect_to @photo.contest, alert: 'Vous avez dépassé le nombre maximum de photo pour ce concours. Vous pouvez en supprimer.' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       elsif @photo.save
-        format.html { redirect_to @photo.contest, notice: 'Votre photo vient d\'être ajoutée.' }
+        format.html { redirect_to @photo.contest, notice: 'Merci pour votre participation ! Votre photo vient d\'être ajoutée.' }
         format.json { render json: @photo, status: :created, location: @photo }
       else
         format.html { render action: "new" }
