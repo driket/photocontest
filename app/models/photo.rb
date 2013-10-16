@@ -11,6 +11,6 @@ class Photo < ActiveRecord::Base
     :hash_secret => "longSecretString"
 
   validates :image, :attachment_presence => true
-  validates_presence_of :title
+  #validates_presence_of :title
   
 end
