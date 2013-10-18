@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 class Photo < ActiveRecord::Base
   attr_accessible :body, :title, :description, :contest_id
   
