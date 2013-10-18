@@ -1,5 +1,8 @@
 # config/application.yml
 defaults: &defaults
+  app_short_title: Concours Photo LORIA
+  app_jumbotron_title: Concours photo du LORIA
+  app_jumbotron_description: Bienvenue sur la plate-forme de concours photos du LORIA.<br />Participez aux concours et votez pour les plus belles photos.
   cas_server: https://cas.inria.fr/cas
   admin_list:
     - villa
