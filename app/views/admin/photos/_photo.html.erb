@@ -2,7 +2,7 @@
 	<div class="photo-title">
 		<h4 class="discreet"><small><%= truncate photo.title, :length => 20 %></small></h4>
 	</div>
-	<div class="photo-frame">
+	<div class="photo-frame small-frame">
 		<a href="<%= photo.image.url %>" rel="lightbox[]" title="<%= photo.title %>">
 			<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
 		</a>
