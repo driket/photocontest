@@ -1,7 +1,7 @@
 <div class="jumbotron">
-   <h1>Concours photo du LORIA</h1>
+   <h1><%= Settings.app_jumbotron_title %></h1>
 	<img src="/assets/cameralens400.png" class="img-responsive" />
-   <p class="lead">Bienvenue sur la plate-forme de concours photos du LORIA. <br />Participez aux concours et votez pour les plus belles photos.</p>
+   <p class="lead"><%= raw Settings.app_jumbotron_description %></p>
  </div>
 
 <% if @open_contests.size > 0 %>
