@@ -10,11 +10,11 @@ class Photo < ActiveRecord::Base
     :url => "/system/:hash.:extension",
     :hash_secret => "longSecretString"
 
+  #validates_presence_of :title
   validates :image, :attachment_presence => true
   validate :image_landscape_orientation
   validate :image_min_width
   validate :image_min_height
-  #validates_presence_of :title
   
   protected
   
