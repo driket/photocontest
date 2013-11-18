@@ -19,6 +19,14 @@ class Photo < ActiveRecord::Base
   validate :image_min_width
   validate :image_min_height
   
+  scope :top12_for_contest, lambda {|contest_id|
+    select("photos.*, count(votes.id) AS votes_count").
+    where(:contest_id => contest_id).
+    joins(:votes).
+    group("photos.id").
+    order("votes_count DESC").
+    limit(12)
+  }  
   def is_voted_by_user?(user_id)
     (Vote.where(:user_uid => user_uid, :photo_id => id).size > 0)
   end
