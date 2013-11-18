@@ -12,3 +12,7 @@
 <% elsif @contest.status == "vote_open" %>
 	<%= render :partial => 'contests/vote_panel', :locals => { :photos => @contest.photos, :contest => @contest }%>
 <% end %>
+
+<% if is_admin? %>
+	<%= render :partial => 'contests/vote_panel', :locals => { :photos => @contest.photos, :contest => @contest }%>
+<% end %>
