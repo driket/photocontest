@@ -59,6 +59,9 @@
 		<% if alert %>
 		<div class="alert alert-danger"><%= alert %></div>
 		<% end %>
+		<noscript>
+			<div class="alert alert-danger">Vous devez activer Javascript pour utiliser toutes les fonctionnalités de ce site.</div>
+		</noscript>
 		
 	 	<%= yield %>
 		<p class="discreet text-center">La participation au concours est accessible en interne, depuis le réseau du LORIA ou via VPN.</p>
