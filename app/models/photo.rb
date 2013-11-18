@@ -28,7 +28,8 @@ class Photo < ActiveRecord::Base
       return 'Vous ne pouvez pas voter pour cette photo. (les votes ne sont pas ouverts pour ce concours)'
     elsif is_voted_by_user?(user_uid)
       return 'Vous ne pouvez pas voter pour cette photo. (vous l\'avez déjà fait)'
-    elsif Vote.where(:user_uid => user_uid).size >= contest.max_vote_per_user
+      #elsif Vote.where(:user_uid => user_uid).size >= contest.max_vote_per_user
+    elsif contest.remaining_votes_for_user(user_uid) <= 0
       return 'Vous ne pouvez pas voter pour cette photo. (vous atteint la limite de voix pour ce concours)'
     end
     vote = Vote.new(:user_uid => user_uid, :photo_id => id)
