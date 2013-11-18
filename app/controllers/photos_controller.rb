@@ -115,14 +115,10 @@ class PhotosController < ApplicationController
   
   def vote
     @photo = Photo.find(params[:id])
-    #@current_user = User.find(session[:cas_user])
-    logger.debug "------> vote" 
-    logger.debug @photo.inspect 
-    #logger.debug @current_user.inspect 
-    # 
+    vote_status = @photo.vote!(session[:cas_user])
     respond_to do |format|
-      if 1==2
-        format.html { redirect_to @photo.contest, alert: 'Vous ne pouvez pas supprimer cette photo.' }
+      if vote_status != ''
+        format.html { redirect_to @photo.contest, alert: vote_status }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       else
         format.html { redirect_to :back, notice: 'Votre voix a bien été pris en compte.'}
