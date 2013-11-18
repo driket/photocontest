@@ -33,7 +33,7 @@ $ ->
 				refresh_remaining_votes(photo_id)
 				
 			.fail ->
-				alert "Impossible de voter. Veuillez vérifiez qu'il vous reste des voix."
+				alert "Impossible de voter. Veuillez vérifier qu'il vous reste des voix."
 				$(_this).show();
 				$(_this).parent().children('.ajax-loader').hide();
 			
@@ -48,6 +48,6 @@ $ ->
 				refresh_remaining_votes(photo_id)
 				
 			.fail ->
-				alert "Impossible de voter. Veuillez vérifiez qu'il vous reste des voix."
+				alert "Impossible de voter. Veuillez vérifier qu'il vous reste des voix."
 				$(_this).show();
 				$(_this).parent().children('.ajax-loader').hide();		
