@@ -20,14 +20,12 @@
 			<%= render 'form' %>
 		</div>
 	  <div class="tab-pane" id="admin-contest-photos">
-			<div class="row">
 			<% if @photos.size > 0 %>
 				<h2>Toutes les photos</h2>
 				<%= render :partial => '/admin/photos/list', :locals => { :photos => @photos, :contest => @contest, :moderation => true } %>
 			<% else%>
 				<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
 			<% end %>
-			</div>		
 		</div>
 	  <div class="tab-pane" id="admin-contest-votes">
 			<% if @photos.size > 0 %>
