@@ -19,10 +19,14 @@ class Photo < ActiveRecord::Base
   validate :image_min_width
   validate :image_min_height
   
+  def is_voted_by_user?(user_id)
+    (Vote.where(:user_uid => user_uid, :photo_id => id).size > 0)
+  end
+  
   def vote!(user_uid)
     if contest.status != "vote_open"
       return 'Vous ne pouvez pas voter pour cette photo. (les votes ne sont pas ouverts pour ce concours)'
-    elsif Vote.where(:user_uid => user_uid, :photo_id => id).size > 0
+    elsif is_voted_by_user?(user_id)
       return 'Vous ne pouvez pas voter pour cette photo. (vous l\'avez déjà fait)'
     elsif Vote.where(:user_uid => user_uid).size >= contest.max_vote_per_user
       return 'Vous ne pouvez pas voter pour cette photo. (vous atteint la limite de voix pour ce concours)'
