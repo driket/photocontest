@@ -1,6 +1,6 @@
 <table class="table table-striped">
 	<thead>
-		<th>Aperçu</th>
+		<th width="20%">Aperçu</th>
 		<th>Titre</th>
 		<th>Description</th>
 		<th>Auteur</th>
@@ -10,7 +10,7 @@
 		<tr>
 			<td>
 				<a href="<%= photo.image.url %>" rel="lightbox[]" title="<%= photo.title %>">
-					<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
+					<%= image_tag photo.image.url(:medium), :class => "img-responsive" %>
 				</a>
 			</td>
 			<td><%= photo.title %></td>
