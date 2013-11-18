@@ -19,6 +19,19 @@ class Photo < ActiveRecord::Base
   validate :image_min_width
   validate :image_min_height
   
+  def vote!(user_uid)
+    if contest.status != "vote_open"
+      return 'Vous ne pouvez pas voter pour cette photo. (les votes ne sont pas ouverts pour ce concours)'
+    elsif Vote.where(:user_uid => user_uid, :photo_id => id).size > 0
+      return 'Vous ne pouvez pas voter pour cette photo. (vous l\'avez déjà fait)'
+    elsif Vote.where(:user_uid => user_uid).size >= contest.max_vote_per_user
+      return 'Vous ne pouvez pas voter pour cette photo. (vous atteint la limite de voix pour ce concours)'
+    end
+    vote = Vote.new(:user_uid => user_uid, :photo_id => id)
+    vote.save!
+    return ''
+  end
+  
   protected
   
     def image_landscape_orientation
