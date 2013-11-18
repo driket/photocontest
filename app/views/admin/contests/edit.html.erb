@@ -32,7 +32,10 @@
 		</div>
 	  <div class="tab-pane" id="admin-contest-votes">
 			<% if @photos.size > 0 %>
-				<%= render :partial => '/admin/photos/list', :locals => { :photo => Photo.top12_for_contest(contest.id), :contest => @contest } %>
+				<h2>Top 12 des photos</h2>
+				<%= render :partial => '/admin/photos/list', :locals => { :photos => Photo.top12_for_contest(@contest.id), :contest => @contest } %>
+				<h2>Toutes les photos</h2>
+				<%= render :partial => '/admin/photos/list', :locals => { :photos => @contest.photos, :contest => @contest } %>
 			<% else%>
 				<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
 			<% end %>
