@@ -121,8 +121,9 @@ class PhotosController < ApplicationController
         format.html { redirect_to @photo.contest, alert: vote_status }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       else
-        format.html { redirect_to :back, notice: 'Votre voix a bien été pris en compte.'}
-        format.json { render json: @photo }
+        vote_status = 'Votre voix a bien été prise en compte.'
+        format.html { redirect_to :back, notice: vote_status}
+        format.json { render json: {:message => vote_status} }
       end
     end
   end
@@ -135,8 +136,9 @@ class PhotosController < ApplicationController
         format.html { redirect_to @photo.contest, alert: vote_status }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       else
-        format.html { redirect_to :back, notice: 'Votre voix a bien été supprimée.'}
-        format.json { render json: @photo }
+        vote_status = 'Votre voix a bien été supprimée.'
+        format.html { redirect_to :back, notice: vote_status}
+        format.json { render json: {:message => vote_status} }
       end
     end 
   end
