@@ -15,27 +15,25 @@ $ ->
 		if $(_this).hasClass('like-button')
 			photo_url = "/photos/#{photo_id}/vote"
 			$.getJSON photo_url, ( data ) ->
-				console.log 'nothing'
+				console.log "data",data
+				alert data.message
 			.done ->
-				#alert 'done'
 				$(_this).parent().children('.unlike-button').show();
 				$(_this).parent().children('.ajax-loader').hide();
 				
 			.fail ->
-				#alert 'fail'
 				$(_this).show();
 				$(_this).parent().children('.ajax-loader').hide();
 			
 		if $(_this).hasClass('unlike-button')
 			photo_url = "/photos/#{photo_id}/unvote"
 			$.getJSON photo_url, ( data ) ->
-				console.log 'nothing'
+				console.log "data",data
+				alert data.message
 			.done ->
-				#alert 'done'
 				$(_this).parent().children('.like-button').show();
 				$(_this).parent().children('.ajax-loader').hide();
 				
 			.fail ->
-				#alert 'fail'
 				$(_this).show();
 				$(_this).parent().children('.ajax-loader').hide();		
