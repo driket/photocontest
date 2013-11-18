@@ -1,6 +1,11 @@
 PhotoContest::Application.routes.draw do
   
-  resources :photos
+  resources :photos do
+    member do 
+      get 'vote'
+      get 'unvote'
+    end
+  end
   
   resources :contests do
     
