@@ -4,11 +4,13 @@
 			<%= image_tag photo.image.url(:medium), :class => "img-responsive thumbnail" %>
 		</a>
 	</div>
-	<p class="text-center">
+	<p class="text-center" data-photo-id="<%= photo.id %>">
 		<% if photo.is_voted_by_user?(session[:cas_user])%>
-		<%= link_to "je n'aime plus", photo_path(photo) + '/unvote', :class => "btn-sm btn-primary text-left like-button" %>
+			<%= link_to "je n'aime plus", photo_path(photo) + '/unvote', :class => "btn-sm btn-primary text-left unlike-button vote-button" %>
+			<%= link_to "j'aime", photo_path(photo) + '/vote', :class => "btn-sm btn-default text-left like-button vote-button", :style => "display:none;" %>
 		<% else %>
-		<%= link_to "j'aime", photo_path(photo) + '/vote', :class => "btn-sm btn-default text-left like-button" %>
+			<%= link_to "je n'aime plus", photo_path(photo) + '/unvote', :class => "btn-sm btn-primary text-left unlike-button vote-button", :style => "display:none;" %>
+			<%= link_to "j'aime", photo_path(photo) + '/vote', :class => "btn-sm btn-default text-left like-button vote-button" %>
 		<% end %>
 		<img src="/assets/ajax-loader.gif" class="ajax-loader" style="display:none;" />
 		<img class="photo-infos-popover text-right" rel="popover" data-original-title="<%= photo.title %>" data-content="<%= photo.description %>" src="/assets/info_button.png" />
