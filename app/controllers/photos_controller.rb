@@ -128,6 +128,16 @@ class PhotosController < ApplicationController
   end
   
   def unvote
-    
+    @photo = Photo.find(params[:id])
+    vote_status = @photo.unvote!(session[:cas_user])
+    respond_to do |format|
+      if vote_status != ''
+        format.html { redirect_to @photo.contest, alert: vote_status }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      else
+        format.html { redirect_to :back, notice: 'Votre voix a bien été supprimée.'}
+        format.json { render json: @photo }
+      end
+    end 
   end
 end
