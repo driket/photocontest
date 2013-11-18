@@ -1,4 +1,4 @@
-<h3>Nombre de voix restantes : <span id="remaining_votes"><%= contest.remaining_votes_for_user(session[:cas_user]) %></span></h3>
+<strong>Nombre de voix restantes : <span id="remaining_votes" class="badge"><%= contest.remaining_votes_for_user(session[:cas_user]) %></span></strong>
 <div class="modal-body">
 
 	<div class="row">
