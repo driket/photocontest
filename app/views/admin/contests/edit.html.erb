@@ -11,7 +11,7 @@
 <ul class="nav nav-tabs" id="contest-admin-tabs">
   <li class="active"><a href="#admin-contest-edit" data-toggle="tab">Modifier</a></li>
   <li><a href="#admin-contest-photos" data-toggle="tab">Participations <span class="badge"><%= @contest.photos.size %></span></a></li>
-  <li><a href="#admin-contest-votes" data-toggle="tab">Votes <span class="badge">0</span></a></li>
+  <li><a href="#admin-contest-votes" data-toggle="tab">Votes <span class="badge"><%= @contest.votes.size %></span></a></li>
 </ul>
 
 <div class="modal-body">
@@ -31,6 +31,11 @@
 			</div>		
 		</div>
 	  <div class="tab-pane" id="admin-contest-votes">
+			<% if @photos.size > 0 %>
+				<%= render :partial => '/admin/photos/list', :locals => { :photo => Photo.top12_for_contest(contest.id), :contest => @contest } %>
+			<% else%>
+				<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
+			<% end %>
 		</div>
 	</div>
 </div>

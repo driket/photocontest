@@ -1,0 +1,20 @@
+<table class="table table-striped">
+	<thead>
+		<th>Aperçu</th>
+		<th>Titre</th>
+		<th>Description</th>
+		<th>Votes</th>
+	</thead>
+	<% for photo in photos %>
+		<tr>
+			<td>
+				<a href="<%= photo.image.url %>" rel="lightbox[]" title="<%= photo.title %>">
+					<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
+				</a>
+			</td>
+			<td><%= photo.title %></td>
+			<td><%= photo.description %></td>
+			<td><span class="badge"><%= photo.votes.size %></span></td>
+		</tr>
+	<% end %>
+</table>
