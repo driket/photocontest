@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$(".photo-infos-popover").popover({placement:'bottom', trigger:'hover'})
+	$(".photo-infos-popover").popover({placement:'top'})
