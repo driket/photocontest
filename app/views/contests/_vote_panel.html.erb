@@ -1,6 +1,5 @@
-<strong>Nombre de voix restantes : <span id="remaining_votes" class="badge"><%= contest.remaining_votes_for_user(session[:cas_user]) %></span></strong>
 <div class="modal-body">
-
+<strong>Nombre de voix restantes : <span id="remaining_votes" class="badge"><%= contest.remaining_votes_for_user(session[:cas_user]) %></span></strong>
 	<div class="row">
 	<% if photos.size > 0 %>
 		<% for photo in photos %>
