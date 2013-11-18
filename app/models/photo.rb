@@ -4,6 +4,7 @@ class Photo < ActiveRecord::Base
   attr_accessible :body, :title, :description, :contest_id
   
   belongs_to :contest
+  has_many :votes
   
   attr_accessible :image
   has_attached_file :image, 
