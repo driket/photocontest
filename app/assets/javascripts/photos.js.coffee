@@ -4,3 +4,7 @@
 
 $ ->
 	$(".photo-infos-popover").popover({placement:'top'})
+	
+	$(".like-button").click ->
+		$(this).hide();
+		$(this).parent().children('.ajax-loader').show();
