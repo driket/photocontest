@@ -1,12 +1,15 @@
 <div class="col-xs-2 photo-display small-frame text-center">
-	<div class="photo-title">
-		<h4 class="discreet"><small><%= truncate photo.title, :length => 20 %></small></h4>
-	</div>
 	<div class="photo-frame small-frame">
 		<a href="<%= photo.image.url %>" rel="lightbox[]" title="<%= photo.title %>">
 			<%= image_tag photo.image.url(:thumb), :class => "img-responsive" %>
 		</a>
 	</div>
-	<small><%= simple_format truncate photo.description, :length => 128 %></small>
-	<%= link_to 'J\'aime', "", :class => "btn-sm btn-default" %>
+	<p class="text-center">
+		<a href="#" class="btn-sm btn-default text-left">
+			<img src="/assets/ajax-loader.gif" />
+		</a>
+		<a href="#" class="photo-infos-popover text-right" rel="popover" data-original-title="<%= photo.title %>" data-content="<%= simple_format  photo.description %>">
+			<img src="/assets/info_button.png" />
+		</a>
+	</p>
 </div>
