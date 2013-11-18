@@ -119,7 +119,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if vote_status != ''
         format.html { redirect_to @photo.contest, alert: vote_status }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json { render json: {:message => vote_status}, status: :unprocessable_entity }
       else
         vote_status = 'Votre voix a bien été prise en compte.'
         format.html { redirect_to :back, notice: vote_status}
@@ -134,12 +134,20 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if vote_status != ''
         format.html { redirect_to @photo.contest, alert: vote_status }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json { render json: {:message => vote_status}, status: :unprocessable_entity }
       else
         vote_status = 'Votre voix a bien été supprimée.'
         format.html { redirect_to :back, notice: vote_status}
         format.json { render json: {:message => vote_status} }
       end
     end 
+  end
+  
+  def remaining_votes
+    @photo = Photo.find(params[:id])
+    votes = @photo.contest.remaining_votes_for_user(session[:cas_user])
+    respond_to do |format|
+       format.json { render json: {:remaining_votes => votes} }
+    end
   end
 end
