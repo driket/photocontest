@@ -3,6 +3,7 @@
 		<th>Aperçu</th>
 		<th>Titre</th>
 		<th>Description</th>
+		<th>Auteur</th>
 		<th>Votes</th>
 	</thead>
 	<% for photo in photos %>
@@ -14,6 +15,16 @@
 			</td>
 			<td><%= photo.title %></td>
 			<td><%= photo.description %></td>
+			<td>
+			<% auteur = LdapUser.find(photo.user_uid).mail %>
+			<% if moderation %>
+				<%= link_to "Contacter", "mailto:#{auteur}?subject=A propos de votre photo \"#{photo.title}\" pour le concours photo.", :class => "btn-sm" %>
+				<%= link_to 'Supprimer', photo, method: :delete, data: { confirm: 'Voulez-vous supprimer cette photo ?' }, :class => "btn-sm" %>
+			<% else %>
+			<%= link_to auteur, "mailto:#{auteur}?subject=A propos de votre photo \"#{photo.title}\" pour le concours photo.", :class => "btn-sm" %>
+			<% end %>
+			
+			</td>
 			<td><span class="badge"><%= photo.votes.size %></span></td>
 		</tr>
 	<% end %>

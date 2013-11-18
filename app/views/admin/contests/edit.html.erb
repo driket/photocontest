@@ -22,9 +22,8 @@
 	  <div class="tab-pane" id="admin-contest-photos">
 			<div class="row">
 			<% if @photos.size > 0 %>
-				<% for photo in @photos %>
-					<%= render :partial => '/admin/photos/photo', :locals => { :photo => photo } %>
-				<% end %> <!-- for photo-->
+				<h2>Toutes les photos</h2>
+				<%= render :partial => '/admin/photos/list', :locals => { :photos => @photos, :contest => @contest, :moderation => true } %>
 			<% else%>
 				<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
 			<% end %>
@@ -33,9 +32,7 @@
 	  <div class="tab-pane" id="admin-contest-votes">
 			<% if @photos.size > 0 %>
 				<h2>Top 12 des photos</h2>
-				<%= render :partial => '/admin/photos/list', :locals => { :photos => Photo.top12_for_contest(@contest.id), :contest => @contest } %>
-				<h2>Toutes les photos</h2>
-				<%= render :partial => '/admin/photos/list', :locals => { :photos => @contest.photos, :contest => @contest } %>
+				<%= render :partial => '/admin/photos/list', :locals => { :photos => Photo.top12_for_contest(@contest.id), :contest => @contest, :moderation => false } %>
 			<% else%>
 				<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
 			<% end %>
