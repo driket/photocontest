@@ -6,6 +6,7 @@
 			<th>Description</th>
 			<th>Dates</th>
 			<th>Photos</th>
+			<th>Votes</th>
 			<th>Actions</th>
 	 	 	<th class="text-right">Status</th>
 		</thead>
@@ -15,6 +16,13 @@
 		 	 	<td><%= contest.description %></td>
 		 	 	<td><%= contest_status_sentence(contest) %></td>
 		 	 	<td class="text-center"><span class="badge"><%= contest.photos.size %></span></td>
+				<td class="text-center">
+					<% if contest.status == "vote_open" || contest.status == "vote_closed" %>
+					<span class="badge"><%= contest.votes.size %></span>
+					<% else %>
+					<span>--</span>
+					<% end %>
+				</td>
 		 	 	<td><%= link_to "administrer", edit_admin_contest_path(contest) %></td>
 		 	 	<td class="text-right"><%= status_label(contest.status) %></td>
 			</tr>
