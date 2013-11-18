@@ -4,6 +4,7 @@ PhotoContest::Application.routes.draw do
     member do 
       get 'vote'
       get 'unvote'
+      get 'remaining_votes'
     end
   end
   
