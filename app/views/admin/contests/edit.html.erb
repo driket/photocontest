@@ -29,8 +29,8 @@
 		</div>
 	  <div class="tab-pane" id="admin-contest-votes">
 			<% if @photos.size > 0 %>
-				<h2>Top 12 des photos</h2>
-				<%= render :partial => '/admin/photos/list', :locals => { :photos => Photo.top12_for_contest(@contest.id), :contest => @contest, :moderation => false } %>
+				<h2>Photo les plus votées</h2>
+				<%= render :partial => '/admin/photos/list', :locals => { :photos => Photo.top_voted_for_contest(@contest.id), :contest => @contest, :moderation => false } %>
 			<% else%>
 				<h4 class="text-center no-photo discreet">Aucune photo pour ce concours.<h4>
 			<% end %>
