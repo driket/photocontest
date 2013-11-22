@@ -28,7 +28,7 @@ class Photo < ActiveRecord::Base
     limit(12)
   }  
   def is_voted_by_user?(user_id)
-    (Vote.where(:user_uid => user_uid, :photo_id => id).size > 0)
+    (Vote.where(:user_uid => user_id, :photo_id => id).size > 0)
   end
   
   def vote!(user_uid)
