@@ -31,6 +31,18 @@ class Photo < ActiveRecord::Base
     (Vote.where(:user_uid => user_id, :photo_id => id).size > 0)
   end
   
+  def check_if_double_vote
+    voters = []
+    double_voters = []
+    for vote in votes
+      if voters.include?vote.user_uid
+        double_voters << vote.user_uid
+      end
+      voters << vote.user_uid
+    end
+    double_voters
+  end
+  
   def vote!(user_uid)
     if contest.status != "vote_open"
       return 'Vous ne pouvez pas voter pour cette photo. (les votes ne sont pas ouverts pour ce concours)'
