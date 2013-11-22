@@ -23,12 +23,13 @@ class Contest < ActiveRecord::Base
   
   def remaining_votes_for_user(user_uid)
     max_votes = max_vote_per_user || 0
-    user_votes = votes.where(:user_uid => user_uid).size
+    user_votes = Vote.votes_for_user(id, user_uid).size
     return max_votes - user_votes
   end
   
   def votes
     photos.joins(:votes)
+    #Vote.votes_for_user(id, "villa")
   end
   
 end
