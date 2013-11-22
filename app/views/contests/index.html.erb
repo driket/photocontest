@@ -34,7 +34,7 @@
  	<h1><%= contest.title %></h1>
  	<img src="/assets/cameralens400.png" class="img-responsive" />
  	<p class="text-center"><%= simple_format contest.description %></p>
- 	<h4 class="text-center text-danger">Termine dans <%= distance_of_time_in_words_to_now contest.date_end %></h4>
+ 	<h4 class="text-center text-danger">Termine dans <%= distance_of_time_in_words_to_now contest.vote_end %></h4>
  	<p class="text-center"><%= link_to contest.vote_action_title, contest, :class => 'btn btn-lg btn-primary' %>
  	<% end %>
  </div>
