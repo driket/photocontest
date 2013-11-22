@@ -31,7 +31,7 @@ class Photo < ActiveRecord::Base
     (Vote.where(:user_uid => user_id, :photo_id => id).size > 0)
   end
   
-  def check_if_double_vote
+  def users_that_voted_twice_the_same_photo
     voters = []
     double_voters = []
     for vote in votes
@@ -39,9 +39,21 @@ class Photo < ActiveRecord::Base
         double_voters << vote.user_uid
       end
       voters << vote.user_uid
-    end
-    double_voters
-  end
+   end
+   double_voters
+ end
+
+ def self.delete_all_double_voted!
+   for photo in Photo.all
+     double_voters = photo.users_that_voted_twice_the_same_photo
+     puts "double voters #{double_voters.join(',')}" if double_voters.size > 0
+     for double_voter in double_voters
+       vote = photo.votes.where(:user_uid => double_voter).first
+       vote.delete
+       puts "delete vote #{vote.inspect}"
+     end
+   end
+ end
   
   def vote!(user_uid)
     if contest.status != "vote_open"
